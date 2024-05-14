@@ -1,1 +1,1 @@
-# segmenta-oRFM
+# segmentacaoRFM
