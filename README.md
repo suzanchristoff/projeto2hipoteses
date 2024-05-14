@@ -1,1 +1,1 @@
-# Segmentacao RFM
+# Segmentação RFM
