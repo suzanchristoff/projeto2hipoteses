@@ -99,7 +99,7 @@
         
         Para as mesmas variáveis categóricas visualizadas nas tabelas, foram criados gráficos que tornassem a visualização dos dados ainda mais compreensível.
         
-        **2.3 Cálculo de medidas tendência central - média e mediana e medidas de dispersão**
+        **2.3 Cálculo medidas tendência central (média e mediana) e de dispersão**
         
         Para a obtenção de tais medidas, optamos inicialmente por utilizar as tabelas do Power BI, onde calculamos a média e mediana das variáveis “total_playlists” e “streams”, e posteriormente usamos o comando *.describe( )* da biblioteca Pandas do Python no Google Colab onde pudemos analisar, além da média e mediana, outras medidas estatísticas como intervalo interquartil e desvio padrão de todas as demais variáveis.
         
