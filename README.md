@@ -71,11 +71,11 @@
         
         Foram tratados os dados referentes às variáveis relacionadas aos nomes das músicas e dos artistas, para que ficassem padronizados, em letras maiúsculas e sem caracteres especiais , tornando o processo posterior de pesquisa pelos nomes mais fácil.
         
-        **1.7 Verificar e alterar o tipo dos dados**
+        **1.7 Verificação e alteração dos tipos dos dados**
         
         Foi verificado que a variável “streams” estava no formato ‘string’ , portanto , para que cálculos posteriores pudessem ser realizados, foi alterada para o tipo ‘inteiro’. 
         
-        **1.8 Identificação e tratamento dados discrepantes nas variáveis numéricas**
+        **1.8 Identificação e tratamento dos dados discrepantes nas variáveis numéricas**
         
         Foram utilizados os comandos MAX, MIN e AVG para identificar valores discrepantes , que permitiu, identificar por exemplo, a música  de track_id “4061483” que não tinha valor correspondente de streams em valor numérico, sendo também retirada da análise.
         
@@ -83,7 +83,7 @@
         
         Foram criadas as variáveis “date_released”,, “total_playlists”, ”total_musics_by_artist”, variáveis relativas aos quartis das características musicais e as correspondentes classificações “baixo” e “alto”, onde foi estabelecido que o quartil 4 iria abranger os valores mais altos das características musicais e os demais os valores mais baixos.
         
-        **1.10 União das tabelas:** 
+        **1.10 União das tabelas** 
         
         Uma vez aplicado todo o processo de limpeza e tratamento dos dados, através das consultas SQL, criamos as “visualizações” das tabelas, com os dados já limpos e com o comando de junção “JOIN” fizemos a união das tabelas em uma única tabela denominada “dados integrados” a partir da qual passamos a trabalhar no Power BI na fase exploratória dos dados
         
