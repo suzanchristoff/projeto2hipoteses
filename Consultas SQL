@@ -1,0 +1,367 @@
+# CONSULTAS SQL
+
+### Contar os valores nulos na tabela de dados do SPOTIFY
+
+```sql
+SELECT 
+  COUNT(CASE WHEN track_id IS NULL THEN 1 ELSE NULL END) AS track_id_null_count,
+  COUNT(CASE WHEN track_name IS NULL THEN 1 ELSE NULL END) AS track_name_null_count,
+  COUNT(CASE WHEN artist_s__name IS NULL THEN 1 ELSE NULL END) AS artist_s__name_null_count,
+  COUNT(CASE WHEN artist_count IS NULL THEN 1 ELSE NULL END) AS artist_count_null_count,
+  COUNT(CASE WHEN released_year IS NULL THEN 1 ELSE NULL END) AS released_year_null_count,
+  COUNT(CASE WHEN released_month IS NULL THEN 1 ELSE NULL END) AS released_month_null_count,
+  COUNT(CASE WHEN released_day IS NULL THEN 1 ELSE NULL END) AS released_day_null_count,
+  COUNT(CASE WHEN in_spotify_playlists IS NULL THEN 1 ELSE NULL END) AS in_spotify_playlists_null_count,
+  COUNT(CASE WHEN in_spotify_charts IS NULL THEN 1 ELSE NULL END) AS in_spotify_charts_null_count,
+  COUNT(CASE WHEN streams IS NULL THEN 1 ELSE NULL END) AS streams_null_count
+  
+ FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify`; 
+```
+
+### Contar os valores nulos na tabela de dados referentes às posições nos charts
+
+```sql
+SELECT 
+  COUNT(CASE WHEN track_id IS NULL THEN 1 ELSE NULL END) AS track_id_null_count,
+  COUNT(CASE WHEN in_apple_playlists IS NULL THEN 1 ELSE NULL END) AS in_apple_playlists_null_count,
+  COUNT(CASE WHEN in_apple_charts IS NULL THEN 1 ELSE NULL END) AS in_apple_charts_null_count,
+  COUNT(CASE WHEN in_deezer_playlists IS NULL THEN 1 ELSE NULL END) AS in_deezer_playlists_null_count,
+  COUNT(CASE WHEN in_deezer_charts IS NULL THEN 1 ELSE NULL END) AS in_deezer_charts_null_count,
+  COUNT(CASE WHEN in_shazam_charts IS NULL THEN 1 ELSE NULL END) AS in_shazam_charts_null_count
+  
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_competition` ;
+```
+
+### Contar os valores nulos na tabela de dados técnicos das músicas
+
+```sql
+SELECT  
+ 
+  COUNT(CASE WHEN track_id IS NULL THEN 1 ELSE NULL END) AS track_id_null_count,
+  COUNT(CASE WHEN bpm IS NULL THEN 1 ELSE NULL END) AS bpm_null_count,
+  COUNT(CASE WHEN key IS NULL THEN 1 ELSE NULL END) AS key_null_count,
+  COUNT(CASE WHEN mode IS NULL THEN 1 ELSE NULL END) AS mode_null_count,
+  COUNT(CASE WHEN danceability__ IS NULL THEN 1 ELSE NULL END) AS danceability_null_count,
+  COUNT(CASE WHEN valence__ IS NULL THEN 1 ELSE NULL END) AS valence_null_count,
+  COUNT(CASE WHEN energy__ IS NULL THEN 1 ELSE NULL END) AS energy_null_count,
+  COUNT(CASE WHEN acousticness__ IS NULL THEN 1 ELSE NULL END) AS acousticness_null_count,
+  COUNT(CASE WHEN instrumentalness__ IS NULL THEN 1 ELSE NULL END) AS instrumentalness_null_count,
+  COUNT(CASE WHEN liveness__ IS NULL THEN 1 ELSE NULL END) AS liveness_null_count,
+  COUNT(CASE WHEN speechiness__ IS NULL THEN 1 ELSE NULL END) AS speechiness_null_count
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_technical_info`
+     
+     
+```
+
+### Visualizar demais dados relacionados às variáveis que continham valores nulos:
+
+```sql
+SELECT *
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_competition` 
+WHERE in_shazam_charts IS NULL
+```
+
+```sql
+SELECT * 
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_technical_info` 
+WHERE key IS NULL
+```
+
+### Identificar dados duplicados
+
+```sql
+SELECT track_name, artist_s__name, COUNT(*) as quantidade
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify`
+GROUP BY track_name, artist_s__name
+HAVING quantidade > 1; 
+```
+
+### Ver demais dados relacionados às músicas duplicadas
+
+```sql
+SELECT *
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify`
+WHERE track_name IN ('SNAP','About Damn Time','Take My Breath','SPIT IN MY FACE!')
+```
+
+### Selecionar apenas linhas que contém caracteres não alfanuméricos, incluindo espaços
+
+```sql
+SELECT track_name
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify`
+WHERE 
+    REGEXP_CONTAINS(track_name, r'[^a-zA-Z0-9\s]')
+```
+
+### Selecionar apenas linhas que contém caracteres não alfanuméricos, incluindo espaços além de localizar textos em letras maiúsculas e minúsculas
+
+```sql
+SELECT track_name
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify`
+WHERE 
+    REGEXP_CONTAINS(track_name, r'[^a-zA-Z0-9]')
+
+```
+
+### Excluir caracteres não alfanuméricos e espaços e retornar lista em caixa alta
+
+```sql
+SELECT  
+ UPPER(REGEXP_REPLACE
+ (REGEXP_REPLACE (track_name, r'[^a-zA-Z0-9]',' '), r'\s+', ' '))
+ 
+  AS  track_name_editados
+
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify`
+
+```
+
+### Selecionar variáveis que contêm dados vazios
+
+```sql
+SELECT *
+ FROM `meu-primeiro-projeto-419811.PROJETO1.tb_dados_integrados` 
+ WHERE track_name = " "
+```
+
+### Identificar e tratar dados discrepantes em variáveis numéricas através das medidas descritivas
+
+```sql
+SELECT 
+AVG (artist_count) AS avg_artist_count, 
+MAX (artist_count) AS max_artist_count,
+MIN (artist_count) AS min_artist_count, 
+AVG(in_spotify_playlists) AS avg_in_spotify_playlists,
+MAX(in_spotify_playlists) AS max_in_spotify_playlists, 
+MIN(in_spotify_playlists) AS min_in_spotify_playlists,
+AVG(in_spotify_charts) AS avg_in_spotify_charts,
+MAX(in_spotify_charts) AS max_in_spotify_charts,
+MIN(in_spotify_charts) AS min_in_spotify_charts,
+AVG (streams_inteiros) AS avg_streams_inteiros,
+MAX (streams_inteiros) AS max_streams_inteiros,
+MIN (streams_inteiros) AS min_streams_inteiros,
+MAX(released_year) AS max_released_year,
+MIN(released_year) AS min_released_year,
+MAX(released_month) AS max_released_month,
+MIN(released_month) AS min_released_month,
+MAX(released_day) AS max_released_day,
+MIN(released_day) AS min_released_day,
+
+FROM `meu-primeiro-projeto-419811.PROJETO1.view_tb_spotify_limpa` 
+```
+
+### Criar tabela auxiliar para contar o número de músicas por artista
+
+```sql
+WITH tb_musics_by_artist AS
+
+(SELECT artist_s_name, COUNT (*) AS total_musics_by_artist
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_dados_integrados` 
+GROUP BY artist_s_name)
+
+SELECT *
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_dados_integrados`d
+
+LEFT JOIN tb_musics_by_artist
+ON d.artist_s_name=tb_musics_by_artist.artist_s_name
+
+```
+
+### Criar visualização da tabela  Spotify já com os dados limpos e tratados:
+
+```sql
+WITH 
+
+---TABELA TEMPORÁRIA 'tb_musics_by_artist'
+tb_musics_by_artist AS (
+
+SELECT artist_s__name, COUNT (*) AS total_musics_by_artist
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify` 
+GROUP BY artist_s__name
+),
+
+---TABELA TEMPORÁRIA 'tb_solo_artists'
+tb_solo_artists AS (
+    SELECT artist_s__name, COUNT(*) AS total_solo_music
+    FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify`
+    WHERE artist_count = 1
+    GROUP BY artist_s__name)
+
+ 
+---SELEÇÃO COLUNAS TABELA SPOTIFY COM AS DEVIDAS MODIFICAÇÕES
+SELECT track_id,
+UPPER(REGEXP_REPLACE (REGEXP_REPLACE (track_name, r'[^a-zA-Z0-9]',' '), r'\s+', ' ')) AS  track_name_editados,
+UPPER(REGEXP_REPLACE (REGEXP_REPLACE (spotify.artist_s__name, r'[^a-zA-Z0-9,]',' '), r'\s+', ' ')) AS  artist_s__name_editados,
+artist_count,released_year,released_month,released_day,
+DATE(CONCAT(released_year,"-",released_month,"-",released_day)) AS released_date,
+
+---CRIAÇÃO VARIÁVEL 'DECADE'
+CAST(FLOOR(released_year / 10) * 10 AS INT64) AS decade,
+
+in_spotify_playlists,in_spotify_charts,
+SAFE_CAST(streams AS INT64) AS streams_inteiros,
+
+---SELEÇÃO DA COLUNA DA TABELA TEMPORÁRIA 'tb_musics_by_artist'
+tb_musics_by_artist.total_musics_by_artist,
+
+---SELEÇÃO DA COLUNA DA TABELA TEMPORÁRIA 'tb_solo_artists'
+
+tb_solo_artists.total_solo_music
+
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify` AS spotify
+
+---JUNÇÃO DAS TABELAS COM LEFT JOIN USANDO A COLUNA COMUM A TODAS AS TABELAS 'artist_s__name'
+
+LEFT JOIN tb_musics_by_artist
+ON spotify.artist_s__name=tb_musics_by_artist.artist_s__name
+
+LEFT JOIN tb_solo_artists
+ON spotify.artist_s__name=tb_solo_artists.artist_s__name
+```
+
+### Criar visualização da tabela “competition” já com os dados limpos e tratados:
+
+```sql
+SELECT * EXCEPT(in_shazam_charts) 
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_competition` 
+```
+
+### Criar visualização da tabela technical_info” já com os dados limpos e tratados:
+
+```sql
+WITH
+
+---TABELA TEMPORARIA QUARTIS
+
+tb_quartis AS (
+
+SELECT track_id,
+
+NTILE(4) OVER(ORDER BY bpm) AS quartile_bpm,
+NTILE(4) OVER(ORDER BY danceability__) AS quartile_danceability,
+NTILE(4) OVER(ORDER BY valence__) AS quartile_valence,
+NTILE(4) OVER(ORDER BY energy__) AS quartile_energy,
+NTILE(4) OVER(ORDER BY acousticness__) AS quartile_acousticness,
+NTILE(4) OVER(ORDER BY instrumentalness__) AS quartile_instrumentalness,
+NTILE(4) OVER(ORDER BY liveness__) AS quartile_liveness,
+NTILE(4) OVER(ORDER BY speechiness__) AS quartile_speechiness,
+
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_technical_info`
+)
+
+---SELECAO COLUNAS DESEJADAS 
+SELECT t.* EXCEPT(`key`, mode),
+tb_quartis.quartile_bpm,
+tb_quartis.quartile_danceability,
+tb_quartis.quartile_valence,
+tb_quartis.quartile_energy,
+tb_quartis.quartile_acousticness,
+tb_quartis.quartile_instrumentalness,
+tb_quartis.quartile_liveness,
+tb_quartis.quartile_speechiness,
+
+CASE WHEN quartile_bpm = 4 THEN 'ALTO' ELSE 'BAIXO' END AS classif_bpm,
+CASE WHEN quartile_danceability = 4 THEN 'ALTO' ELSE 'BAIXO' END AS classif_danceability,
+CASE WHEN quartile_valence = 4 THEN 'ALTO' ELSE 'BAIXO' END AS classif_valence,
+CASE WHEN quartile_energy = 4 THEN 'ALTO' ELSE 'BAIXO' END AS classif_energy,
+CASE WHEN quartile_acousticness = 4 THEN 'ALTO' ELSE 'BAIXO' END AS classif_acousticness,
+CASE WHEN quartile_instrumentalness = 4 THEN 'ALTO' ELSE 'BAIXO' END AS classif_instrumentalness,
+CASE WHEN quartile_liveness = 4 THEN 'ALTO' ELSE 'BAIXO' END AS classif_liveness,
+CASE WHEN quartile_speechiness = 4 THEN 'ALTO' ELSE 'BAIXO' END AS classif_speechiness, 
+
+FROM `meu-primeiro-projeto-419811.PROJETO1.tb_technical_info` as t LEFT JOIN tb_quartis
+ON t.track_id=tb_quartis.track_id
+
+```
+
+### Criar a tabela de dados integrados através da união das demais tabelas
+
+```sql
+CREATE OR REPLACE TABLE  `meu-primeiro-projeto-419811.PROJETO1.tb_dados_integrados` AS
+
+---COLUNAS VIEW TABELA SPOTIFY LIMPA
+
+SELECT spotify.track_id ,
+track_name_editados AS track_name,
+artist_s__name_editados AS artist_s_name,
+artist_count,released_year,released_month,released_day,released_date,decade,in_spotify_playlists,in_spotify_charts,
+streams_inteiros AS streams_spotify,
+total_musics_by_artist,total_solo_music,
+
+---COLUNAS VIEW TABELA COMPETITION LIMPA
+
+in_apple_playlists,in_apple_charts,in_deezer_playlists,in_deezer_charts,
+
+---NOVA VARIÁVEL TOTAL PLAYLISTS
+
+(in_spotify_playlists+in_apple_playlists+in_deezer_playlists) AS total_playlists, 
+
+---COLUNAS VIEW TABELA TECHNICAL_INFO LIMPA
+
+bpm,danceability__ AS danceability,
+valence__ AS valence,
+energy__ AS energy,
+acousticness__ AS acousticness,
+instrumentalness__ AS instrumentalness,
+liveness__ AS liveness,
+speechiness__ AS speechiness,
+    
+    quartile_bpm,
+    classif_bpm,
+    
+    quartile_danceability,
+    classif_danceability,
+    
+    classif_valence,
+    quartile_valence,
+    
+    quartile_energy,
+    classif_energy,
+    
+    quartile_acousticness,
+    classif_acousticness,
+    
+    quartile_instrumentalness,
+    classif_instrumentalness,
+    
+    quartile_liveness,
+    classif_liveness,
+    
+    quartile_speechiness,
+    classif_speechiness
+    
+        
+---JUNÇÃO VIEWS TABELAS SPOTIFY, COMPETITION E TECHNICAL_INFO USANDO A COLUNA 'TRACK_ID' COMO LIGAÇÃO
+
+FROM `meu-primeiro-projeto-419811.PROJETO1.view_tb_spotify_limpa` AS spotify 
+
+LEFT JOIN
+`meu-primeiro-projeto-419811.PROJETO1.view_tb_competition_limpa`AS competition
+ON spotify.track_id=competition.track_id
+
+LEFT JOIN 
+`meu-primeiro-projeto-419811.PROJETO1.view_tb_technical_info_limpa`AS technical_info
+ON spotify.track_id=technical_info.track_id
+
+---DEIXANDO 'FORA' as TRACK ID NÃO RELEVANTES PARA A PESQUISA
+WHERE spotify.track_id NOT IN('3814670','5080031','1119309','8173823','4061483')
+```
+
+### Calcular coeficientes de correlação
+
+```sql
+SELECT CORR (total_solo_music,streams_spotify) AS correlation_n_musicas_streams,
+CORR (in_spotify_charts,in_deezer_charts) AS correlation_charts_spotify_deezer,
+CORR (in_spotify_charts,in_apple_charts) AS correlation_charts_spotify_apple,
+CORR(total_playlists,streams_spotify) AS correlation_playlists_streams,
+CORR(bpm,streams_spotify) AS correlation_bpm_streams,
+CORR(danceability,streams_spotify) AS correlation_danceability_streams,
+CORR(valence,streams_spotify) AS correlation_valence_streams,
+CORR(energy,streams_spotify) AS correlation_energy_streams,
+CORR(acousticness,streams_spotify) AS correlation_acousticness_streams,
+CORR(instrumentalness,streams_spotify) AS correlation_instrumentalness_streams,
+CORR(liveness,streams_spotify) AS correlation_liveness_streams,
+CORR(speechiness,streams_spotify) AS correlation_speechnes_streams,
+
+ FROM `meu-primeiro-projeto-419811.PROJETO1.tb_dados_integrados` 
+```
