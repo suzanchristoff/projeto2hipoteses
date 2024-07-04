@@ -164,4 +164,6 @@
         - Falta de dados referentes à faixa etária dos usuários, que nos permitiria visualizar a distribuição das idades  e assim entender melhor o perfil de consumo musical desses usuários, o que ajudaria na adaptação da estratégia de marketing, além de aperfeiçoar a escolha do repertório e estilo da produção musical do nosso artista.
         - Dados referentes ao desempenho das músicas por regiões geográficas , permitiriam saber , por exemplo, se há uma região que responde mais positivamente, podendo assim, haver um melhor direcionamento das promoções, melhor planejamento das turnês e outros eventos, colaborações com artistas locais e também adaptações musicais. E ainda,  identificar tendências e mudanças nas preferências musicais em diferentes partes do mundo, o que pode contribuir para a tomada de futura decisões, mantendo nosso artista relevante e competitivo em escala global.
         
-        Com base nos levantamentos acima, propomos estender o projeto, para que possamos ter ainda mais e melhores insights que contribuam para o sucesso do lançamento do nosso artista. 
+        Com base nos levantamentos acima, propomos estender o projeto, para que possamos ter ainda mais e melhores insights que contribuam para o sucesso do lançamento do nosso artista.
+
+  
