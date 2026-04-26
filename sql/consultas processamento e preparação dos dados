@@ -1,0 +1,51 @@
+# CONSULTAS SQL PARA PROCESSAMENTO E PREPARAÇÃO DA BASE DE DADOS
+
+- **IDENTIFICAR DUPLICADOS - SQL COUNT, GROUP BY, HAVING**
+    
+    SELECT track_name, artist_s__name, COUNT(*) as quantidade
+    FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify`
+    GROUP BY track_name, artist_s__name
+    HAVING quantidade > 1;
+    
+- **VER DEMAIS VARIÁVEIS RELACIONADAS AOS DADOS DUPLICADOS** - SQL IN
+    
+    SELECT *
+    FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify`
+    WHERE track_name IN ('SNAP','About Damn Time','Take My Breath','SPIT IN MY FACE!')
+    
+- **DESCONSIDERAR COLUNAS - SQL EXCEPT**
+    
+    SELECT * EXCEPT(in_shazam_charts)
+    FROM `meu-primeiro-projeto-419811.PROJETO1.tb_competition`
+    LIMIT 1000
+    
+    SELECT * EXCEPT(`key`,mode)
+    FROM `meu-primeiro-projeto-419811.PROJETO1.tb_technical_info`
+    LIMIT 1000
+    
+- **LISTAR  VALORES ÚNICOS NA COLUNA DE STRING QUE NÃO CONSISTEM APENAS EM DÍGITOS NUMÉRICOS**
+    
+    ```
+    SELECT  streams
+    FROM meu-primeiro-projeto-419811.PROJETO1.tb_spotify
+    WHERE streams IS NOT NULL
+    AND NOT REGEXP_CONTAINS(streams, r'^[0-9]+$');
+    ```
+    
+- **CONVERTER STRINGS EM VALORES NUMÉRIOS**
+    
+    ```sql
+    SELECT 
+    SAFE_CAST(streams AS INT64) AS streams_inteiros
+     FROM `meu-primeiro-projeto-419811.PROJETO1.tb_spotify` 
+    ```
+    
+- **CRIAR OU SUSBSTITUIR VALORES NOVA TABELA**
+    
+    ```sql
+    CREATE OR REPLACE TABLE meu-primeiro-projeto-419811.PROJETO1.tb_competition_limpa AS
+    
+    SELECT * EXCEPT(in_shazam_charts)
+    
+     FROM `meu-primeiro-projeto-419811.PROJETO1.tb_competition` 
+    ```
