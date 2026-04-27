@@ -7,7 +7,7 @@
 
 ## Sumário
 
-- [Contexto e Objetivos](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
+- [Contexto e Objetivos](#Contexto-e-Objetivos)
 - [Hipóteses Investigadas](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
 - [Ferramentas e Tecnologias](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
 - [Estrutura do Repositório](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
