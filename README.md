@@ -61,15 +61,13 @@ spotify-hipoteses/
 │   └── README.md               # Descrição das tabelas originais e variáveis
 │
 ├── sql/
-│   ├── 01_importacao.sql       # Criação do projeto e carregamento das tabelas
-│   ├── 02_nulos.sql            # Identificação de valores nulos
-│   ├── 03_duplicados.sql       # Identificação e tratamento de duplicatas
-│   ├── 04_discrepantes.sql     # Tratamento de outliers (MAX, MIN, AVG)
-│   ├── 05_novas_variaveis.sql  # Criação de variáveis derivadas e quartis
-│   ├── 06_join_tabelas.sql     # União das tabelas em "dados_integrados"
-│   └── 07_correlacoes.sql      # Cálculo de correlações entre variáveis
-│
-├── analise/
+│   ├── 01_quality_checks/null_counts_competition.sql       # Verificação de Valores Nulos
+│   ├── 02_data_cleaning/clean_special_characters.sql       # Limpeza de Caracteres Especiais
+│   ├── 03_views/view_spotify_cleaned.sql                   # view_tb_spotify_limpa
+│   ├── 04_integration/create_integrated_table.sql          # Criação da Tabela Final Integrada
+│   ├── 05_analysis/correlation_analysis.sql                # análise de correlação entre variáveis
+│   
+├── notebook/
 │   └── eda_spotify.ipynb       # Notebook Python com EDA, histogramas e estatísticas
 │
 ├── dashboard/
