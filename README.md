@@ -7,15 +7,15 @@
 
 ## Sumário
 
-- [Contexto e Objetivos](https://claude.ai/chat/7a3a9d3e-fd24-4328-9737-d5324445c4f5#-contexto-e-objetivos)
-- [Hipóteses Investigadas](https://claude.ai/chat/7a3a9d3e-fd24-4328-9737-d5324445c4f5#-hip%C3%B3teses-investigadas)
-- [Ferramentas e Tecnologias](https://claude.ai/chat/7a3a9d3e-fd24-4328-9737-d5324445c4f5#-ferramentas-e-tecnologias)
-- [Estrutura do Repositório](https://claude.ai/chat/7a3a9d3e-fd24-4328-9737-d5324445c4f5#-estrutura-do-reposit%C3%B3rio)
-- [Metodologia](https://claude.ai/chat/7a3a9d3e-fd24-4328-9737-d5324445c4f5#-metodologia)
-- [Resultados e Conclusões](https://claude.ai/chat/7a3a9d3e-fd24-4328-9737-d5324445c4f5#-resultados-e-conclus%C3%B5es)
-- [Recomendações](https://claude.ai/chat/7a3a9d3e-fd24-4328-9737-d5324445c4f5#-recomenda%C3%A7%C3%B5es)
-- [Limitações e Próximos Passos](https://claude.ai/chat/7a3a9d3e-fd24-4328-9737-d5324445c4f5#-limita%C3%A7%C3%B5es-e-pr%C3%B3ximos-passos)
-- [Equipe](https://claude.ai/chat/7a3a9d3e-fd24-4328-9737-d5324445c4f5#-equipe)
+- [Contexto e Objetivos](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
+- [Hipóteses Investigadas](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
+- [Ferramentas e Tecnologias](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
+- [Estrutura do Repositório](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
+- [Metodologia](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
+- [Resultados e Conclusões](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
+- [Recomendações](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
+- [Limitações e Próximos Passos](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
+- [Equipe](https://www.notion.so/README-34e207fbe91380e0bbfbee7d1b2c9387?pvs=21)
 
 ---
 
