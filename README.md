@@ -122,6 +122,8 @@ O dashboard em Power BI apresenta:
 - Médias das características musicais
 - Filtros por artista, música, década, posição nos charts e nível de streams
 
+<img src="imagens/dashboard.png" alt="Alt text" width="800" height="500">
+
 ---
 
 ## Resultados e Conclusões
