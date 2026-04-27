@@ -32,11 +32,11 @@ Uma gravadora busca lançar um novo artista no cenário musical global e contrat
 
 | # | Hipótese | Resultado |
 | --- | --- | --- |
-| H1 | Músicas com BPM mais alto fazem mais sucesso em streams | ❌ Refutada |
-| H2 | Músicas populares no Spotify têm desempenho similar no Deezer | ✅ Validada |
-| H3 | Presença em mais playlists está correlacionada com mais streams | ✅ Validada |
-| H4 | Artistas com mais músicas no Spotify têm mais streams | ❌ Refutada |
-| H5 | Características musicais influenciam o número de streams | ❌ Refutada |
+| H1 | Músicas com BPM mais alto fazem mais sucesso em streams |  Refutada |
+| H2 | Músicas populares no Spotify têm desempenho similar no Deezer |  Validada |
+| H3 | Presença em mais playlists está correlacionada com mais streams |  Validada |
+| H4 | Artistas com mais músicas no Spotify têm mais streams |  Refutada |
+| H5 | Características musicais influenciam o número de streams |  Refutada |
 
 ---
 
