@@ -50,35 +50,6 @@ Uma gravadora busca lançar um novo artista no cenário musical global e contrat
 
 ---
 
-## Estrutura do Repositório
-
-```
-spotify-hipoteses/
-│
-├── README.md                   # Documentação principal do projeto
-│
-├── dados/
-│   └── README.md               # Descrição das tabelas originais e variáveis
-│
-├── sql/
-│   ├── 01_quality_checks/null_counts_competition.sql       # Verificação de Valores Nulos
-│   ├── 02_data_cleaning/clean_special_characters.sql       # Limpeza de Caracteres Especiais
-│   ├── 03_views/view_spotify_cleaned.sql                   # view_tb_spotify_limpa
-│   ├── 04_integration/create_integrated_table.sql          # Criação da Tabela Final Integrada
-│   ├── 05_analysis/correlation_analysis.sql                # análise de correlação entre variáveis
-│   
-├── notebook/
-│   └── eda_spotify.ipynb       # Notebook Python com EDA, histogramas e estatísticas
-│
-├── dashboard/
-│   └── dashboard_spotify.pbix  # Arquivo Power BI com dashboard interativo
-│
-└── imagens/
-    └── dashboard_preview.png   # Print do dashboard para visualização rápida
-```
-
----
-
 ## Metodologia
 
 ### 1. Processamento e Preparação dos Dados
