@@ -10,7 +10,6 @@
 - [Contexto e Objetivos](#Contexto-e-Objetivos)
 - [Hipóteses Investigadas](#Hipóteses-Investigadas)
 - [Ferramentas e Tecnologias](#Ferramentas-e-Tecnologias)
-- [Estrutura do Repositório](#Estrutura-do-Repositório)
 - [Metodologia](#Metodologia)
 - [Resultados e Conclusões](#Resultados-e-Conclusões)
 - [Recomendações](#Recomendações)
